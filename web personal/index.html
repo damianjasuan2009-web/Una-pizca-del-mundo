@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f6f2">
+    <meta name="description" content="Explora países, descubre un dato curioso de cada rincón del mundo y ubícalo en el mapa.">
+    <title>Atlas curioso — El mundo en pequeñas historias</title>
+    <link rel="preconnect" href="https://restcountries.com">
+    <link rel="preconnect" href="https://es.wikipedia.org">
+    <link rel="preconnect" href="https://www.openstreetmap.org">
+    <link rel="stylesheet" href="styles.css">
+    <script src="countries-data.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Atlas curioso, inicio">
+        <span class="brand-mark" aria-hidden="true">a</span>
+        <span>atlas<span class="brand-light">curioso</span></span>
+      </a>
+      <div class="header-note"><span class="live-dot"></span> Una ventana al mundo</div>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow"><span class="eyebrow-line"></span> GEOGRAFÍA PARA LOS CURIOSOS</p>
+        <h1 id="page-title">El mundo está lleno<br>de <span>pequeñas maravillas.</span></h1>
+        <p class="intro-copy">Elige un país, encuentra un dato que no sabías y viaja hasta allí en el mapa.</p>
+      </section>
+
+      <section class="explorer" aria-label="Explorador de países">
+        <div class="explorer-heading">
+          <div>
+            <p class="section-kicker">TU PRÓXIMO DESCUBRIMIENTO</p>
+            <h2>¿A dónde viajamos?</h2>
+          </div>
+          <button class="random-button" id="random-button" type="button">
+            <span aria-hidden="true">✳</span> Sorpréndeme
+          </button>
+        </div>
+
+        <div class="search-row">
+          <label class="search-box" for="country-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.5 4.5"></path></svg>
+            <input id="country-search" type="search" placeholder="Busca un país..." autocomplete="off">
+            <kbd>/</kbd>
+          </label>
+          <span class="country-count" id="country-count" aria-live="polite">Cargando países...</span>
+        </div>
+
+        <div class="continent-filters" id="continent-filters" aria-label="Filtrar por continente">
+          <button class="filter-chip active" type="button" data-region="Todos" aria-pressed="true">Todos</button>
+          <button class="filter-chip" type="button" data-region="América" aria-pressed="false">América</button>
+          <button class="filter-chip" type="button" data-region="Europa" aria-pressed="false">Europa</button>
+          <button class="filter-chip" type="button" data-region="Asia" aria-pressed="false">Asia</button>
+          <button class="filter-chip" type="button" data-region="África" aria-pressed="false">África</button>
+          <button class="filter-chip" type="button" data-region="Oceanía" aria-pressed="false">Oceanía</button>
+          <button class="filter-chip" type="button" data-region="Antártida" aria-pressed="false">Antártida</button>
+        </div>
+      </section>
+
+      <section class="discovery-layout" aria-label="País seleccionado y lista de países">
+        <article class="feature-card" id="feature-card" aria-live="polite">
+          <div class="feature-topline">
+            <span class="feature-label"><span class="sparkle" aria-hidden="true">✳</span> DATO CURIOSO</span>
+            <span class="feature-number" id="feature-number">01 <span>/ PAÍS</span></span>
+          </div>
+          <div class="feature-country">
+            <img class="feature-flag" id="feature-flag" alt="" src="">
+            <div>
+              <p class="feature-region" id="feature-region"></p>
+              <h2 id="feature-name">Preparando el atlas...</h2>
+            </div>
+          </div>
+          <div class="fact-block">
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <p id="feature-fact">Estamos reuniendo historias de todos los rincones del mundo.</p>
+            <a class="fact-source" id="fact-source" href="#" target="_blank" rel="noreferrer" hidden>Leer más sobre este país <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="country-stats" id="country-stats"></div>
+          <div class="map-heading">
+            <div>
+              <p class="section-kicker">UBÍCALO EN EL MAPA</p>
+              <h3 id="map-title">Explora el lugar</h3>
+            </div>
+            <span class="map-coordinates" id="map-coordinates"></span>
+          </div>
+          <div class="map-frame">
+            <iframe id="country-map" title="Mapa del país seleccionado" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <a class="map-link" id="map-link" href="#" target="_blank" rel="noreferrer">Abrir mapa ↗</a>
+          </div>
+        </article>
+
+        <section class="country-browser" aria-labelledby="browser-title">
+          <div class="browser-heading">
+            <div>
+              <p class="section-kicker">EL ATLAS</p>
+              <h2 id="browser-title">Explora el mundo</h2>
+            </div>
+            <span class="browser-total" id="browser-total"></span>
+          </div>
+          <div class="country-grid" id="country-grid" aria-live="polite">
+            <div class="loading-card"><span class="loader"></span> Cargando países...</div>
+          </div>
+          <p class="empty-state" id="empty-state" hidden>No encontramos países con esa búsqueda. Prueba otro nombre o continente.</p>
+          <button class="load-more" id="load-more" type="button" hidden>Ver más países <span aria-hidden="true">↓</span></button>
+        </section>
+      </section>
+      <p class="data-note" id="data-note">Datos: <a href="https://github.com/mledoze/countries" target="_blank" rel="noreferrer">catálogo abierto de países</a> · Historias: Wikipedia · Mapas: OpenStreetMap</p>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#"><span class="brand-mark" aria-hidden="true">a</span><span>atlas<span class="brand-light">curioso</span></span></a>
+      <span>Un pequeño viaje empieza con una pregunta.</span>
+      <span class="footer-globe" aria-hidden="true">✳</span>
+    </footer>
+  </body>
+</html>
