@@ -1,0 +1,20 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="18" y1="12" x2="106" y2="110" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3C7A5A"/>
+      <stop offset="1" stop-color="#214C3C"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="32" y1="24" x2="96" y2="96" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9F3E6"/>
+      <stop offset="1" stop-color="#D7E5D7"/>
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="116" height="116" rx="28" fill="url(#bg)"/>
+  <circle cx="64" cy="64" r="30" fill="url(#glow)" fill-opacity="0.26"/>
+  <circle cx="64" cy="64" r="26" stroke="white" stroke-width="3.5"/>
+  <path d="M38 64H90M64 38V90M48 48C52 52 58 55 64 55C70 55 76 52 80 48M48 80C52 76 58 73 64 73C70 73 76 76 80 80" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <path d="M64 28C72 36 76 49 76 64C76 79 72 92 64 100C56 92 52 79 52 64C52 49 56 36 64 28Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="88" cy="44" r="8" fill="#F3A85D"/>
+  <path d="M88 30V36M88 52V58M74 44H80M96 44H102" stroke="#F7D3A6" stroke-width="3" stroke-linecap="round"/>
+  <path d="M88 40L94 49L88 61L82 49L88 40Z" fill="#F3A85D" stroke="#F7D3A6" stroke-width="2" stroke-linejoin="round"/>
+</svg>
